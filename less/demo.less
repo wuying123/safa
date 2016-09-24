@@ -1,0 +1,42 @@
+@cols:12;
+@small:480px;
+@middle:960px;
+@large:1200px;
+@padding:15px;
+@margin:-15px;
+.response(@i,@type)when(@i<=@cols){
+  .col-@{type}-@{i} {
+    width: @i/@cols*100%;
+    float: left;
+    box-sizing: border-box;
+    padding: @padding;
+  }
+  .response(@i+1,@type);
+  }
+
+.response(1,xs);
+.position(@i:0,@type:xs)when(@i<=@cols){
+  .col-@{type}-push-@{i}{
+    left: @i/@cols*100%;
+  }
+  .col-@{type}-pull-@{i}{
+    right: @i/@cols*100%;
+  }
+  .position(@i+1,@type);
+}
+.position();
+@media screen and (min-width:@small){
+  .position(0,sm);
+  .response(1,sm);
+}
+@media screen and (min-width:@middle){
+  .position(0,md);
+  .response(1,md);
+}
+@media screen and (min-width:@large){
+  .position(0,lg);
+  .response(1,lg);
+}
+
+
+

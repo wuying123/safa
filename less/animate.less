@@ -1,0 +1,52 @@
+
+.circle(@i:0)when(@i<=20){
+  @r:25;
+  @selector:@i*5%;
+  @angle:@i*18deg;
+  @x:sin(@angle)*@r*-1px;
+  @y:cos(@angle)*@r*1px;
+  @{selector} {
+     transform:translate(@x,@y);
+}
+  .circle(@i+1);
+}
+@keyframes circle {
+   .circle();
+}
+@font-face {
+  font-family: 'iconfont';
+  src: url('//at.alicdn.com/t/font_1463714917_363518.eot'); /* IE9*/
+  src: url('//at.alicdn.com/t/font_1463714917_363518.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//at.alicdn.com/t/font_1463714917_363518.woff') format('woff'), /* chrome、firefox */
+  url('//at.alicdn.com/t/font_1463714917_363518.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/font_1463714917_363518.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.round(@i:0) when (@i<=20){
+  @selector:@i*5%;
+  @angle:@i*18deg;
+  @{selector} {
+    transform:rotate(@angle);
+  }
+  .round(@i+1);
+}
+@keyframes round{
+  .round();
+}
+.curve(@i:0)when(@i<=20){
+  @l:150;
+  @selector:@i*5%;
+  @angle:@i*18deg;
+  @x:@l*@i*0.05px;
+  @y:sin(@angle)*@r*-1px;
+  @r:20;
+  @{selector} {
+    transform:translate(@x,@y);
+  }
+  .curve(@i+1);
+}
+@keyframes curve{
+  .curve();
+}
+
+
